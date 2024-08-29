@@ -29,41 +29,49 @@ export default function Dashboard() {
       icon: Home,
       label: "Home",
       className: "flex flex-col items-center home-button",
+      link: "/",
     },
     {
       icon: BarChart2,
       label: "Dashboards",
       className: "flex flex-col items-center dashboards-button",
+      link: "#",
     },
     {
       icon: Star,
       label: "Views",
       className: "flex flex-col items-center views-button",
+      link: "#",
     },
     {
       icon: FileText,
       label: "Documents",
       className: "flex flex-col items-center documents-button",
+      link: "/documents",
     },
     {
       icon: ImageIcon,
       label: "Reviews",
       className: "flex flex-col items-center image-button",
+      link: "#",
     },
     {
       icon: FlaskConical,
       label: "Tests & Runs",
       className: "flex flex-col items-center tests-button",
+      link: "#",
     },
     {
       icon: Cuboid,
       label: "Data Models",
       className: "flex flex-col items-center data-button",
+      link: "#",
     },
     {
       icon: Database,
       label: "Traceability Matrix",
       className: "flex flex-col items-center matrix-button",
+      link: "#",
     },
   ];
 
@@ -137,21 +145,23 @@ export default function Dashboard() {
 
       <aside className="sidebar w-24 bg-black text-white flex flex-col items-center py-2 overflow-y-auto max-h-full px-2">
         <div className="aspect-square w-full bg-red-500 rounded-sm flex items-center justify-center text-white font-bold text-xl">
-          V
+          <Link href="/">V</Link>
         </div>
         <nav className="space-y-2">
           {sidebarItems.map((item, index) => (
-            <div key={index} className={item.className}>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-gray-400 hover:text-red-500 hover:bg-gray-800 w-12 h-12 rounded-lg"
-              >
-                <item.icon className="h-6 w-6" />
-              </Button>
-              <span className="text-xs mt-1 text-center text-gray-400">
-                {item.label}
-              </span>
+            <div key={index}>
+              <Link href={item.link} className={item.className}>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-gray-400 hover:text-red-500 hover:bg-gray-800 w-12 h-12 rounded-lg"
+                >
+                  <item.icon className="h-6 w-6" />
+                </Button>
+                <span className="text-xs mt-1 text-center text-gray-400">
+                  {item.label}
+                </span>
+              </Link>
             </div>
           ))}
         </nav>
@@ -207,8 +217,8 @@ export default function Dashboard() {
                 <div className="w-1/3">
                   <Image
                     src="/placeholder.png"
-                    width={150}
-                    height={150}
+                    width={75}
+                    height={75}
                     alt="Team collaboration"
                     className="w-full"
                   />
@@ -271,9 +281,9 @@ export default function Dashboard() {
                     Unveiling Visure V8
                   </h4>
                   <p className="text-sm text-gray-600">
-                    Join us for an exclusive webinar, &apos;Unveiling V8,&apos; where we
-                    showcase the latest features and advancements in Visure
-                    Solutions&apos; version 8.
+                    Join us for an exclusive webinar, &apos;Unveiling V8,&apos;
+                    where we showcase the latest features and advancements in
+                    Visure Solutions&apos; version 8.
                   </p>
                   <p className="text-sm text-gray-500 mt-2">
                     Est. reading time
