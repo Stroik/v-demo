@@ -71,7 +71,7 @@ export default function Dashboard() {
     {
       target: ".sidebar",
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elst. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "This is a sidebar to show the options in the main menu",
       disableBeacon: true,
     },
     {
