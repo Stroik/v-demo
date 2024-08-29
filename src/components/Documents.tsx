@@ -75,12 +75,12 @@ export default function Documents() {
     {
       target: ".addchild-icon",
       content:
-        "A new item will be created right below the currently selected item and as its child in the hierarchy tree.",
+        "A new item will be created right below the currently selected item and as it's child in the hierarchy tree.",
     },
     {
       target: ".ai-icon",
       content:
-        "Use our AI assistant to generate high quality requirements automatically",
+        "Use our AI assistant to generate high quality requirements automatically.",
     },    
     {
       target: ".lock-icon",
@@ -97,6 +97,30 @@ export default function Documents() {
       content:
         "When selecting an item, you can see all details here.",
     }, 
+    {
+      target: ".afiles-icon",
+      content:
+        "You can upload files and associate it to items.",
+    }, 
+    {
+      target: ".history-icon",
+      content:
+        "When making modifications to your item, a new version will be created. You can compare the history of all versions.",
+    },
+    {
+      target: ".linked-icon",
+      content:
+        "You can link items with other items and create traceability, you can see all the links here.",
+    },
+    {
+      target: ".comments-icon",
+      content:
+        "Each item can have it's own conversation, you can approve or reject comments and view it in this section.",
+    }, 
+    {
+      target: ".approvals-icon",
+      content:
+        "You can access your approvals and rejects activity in this section, users can also add comments when making a decision."   }, 
   ];
 
   const sidebarItems = [
