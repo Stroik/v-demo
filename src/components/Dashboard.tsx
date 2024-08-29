@@ -3,83 +3,20 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Home,
-  BarChart2,
-  Star,
-  FileText,
-  Image as ImageIcon,
-  FlaskConical,
-  Cuboid,
-  Database,
-  Facebook,
-  Twitter,
-  Linkedin,
-  Youtube,
-} from "lucide-react";
+import { Facebook, Twitter, Linkedin, Youtube } from "lucide-react";
+
 import Link from "next/link";
 import Joyride, { Step } from "react-joyride";
 import Image from "next/image";
+import Sidebar from "./common/Sidebar";
 
 export default function Dashboard() {
   const [runTour, setRunTour] = useState(true);
 
-  const sidebarItems = [
-    {
-      icon: Home,
-      label: "Home",
-      className: "flex flex-col items-center home-button",
-      link: "/",
-    },
-    {
-      icon: BarChart2,
-      label: "Dashboards",
-      className: "flex flex-col items-center dashboards-button",
-      link: "#",
-    },
-    {
-      icon: Star,
-      label: "Views",
-      className: "flex flex-col items-center views-button",
-      link: "#",
-    },
-    {
-      icon: FileText,
-      label: "Documents",
-      className: "flex flex-col items-center documents-button",
-      link: "/documents",
-    },
-    {
-      icon: ImageIcon,
-      label: "Reviews",
-      className: "flex flex-col items-center image-button",
-      link: "#",
-    },
-    {
-      icon: FlaskConical,
-      label: "Tests & Runs",
-      className: "flex flex-col items-center tests-button",
-      link: "#",
-    },
-    {
-      icon: Cuboid,
-      label: "Data Models",
-      className: "flex flex-col items-center data-button",
-      link: "#",
-    },
-    {
-      icon: Database,
-      label: "Traceability Matrix",
-      className: "flex flex-col items-center matrix-button",
-      link: "#",
-    },
-  ];
-
   const steps: Step[] = [
     {
       target: ".sidebar",
-      content:
-        "This is a sidebar to show the options in the main menu",
+      content: "This is a sidebar to show the options in the main menu",
       disableBeacon: true,
     },
     {
@@ -143,29 +80,7 @@ export default function Dashboard() {
         }}
       />
 
-      <aside className="sidebar w-24 bg-black text-white flex flex-col items-center py-2 overflow-y-auto max-h-full px-2">
-        <div className="aspect-square w-full bg-red-500 rounded-sm flex items-center justify-center text-white font-bold text-xl">
-          <Link href="/">V</Link>
-        </div>
-        <nav className="space-y-2">
-          {sidebarItems.map((item, index) => (
-            <div key={index}>
-              <Link href={item.link} className={item.className}>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="text-gray-400 hover:text-red-500 hover:bg-gray-800 w-12 h-12 rounded-lg"
-                >
-                  <item.icon className="h-6 w-6" />
-                </Button>
-                <span className="text-xs mt-1 text-center text-gray-400">
-                  {item.label}
-                </span>
-              </Link>
-            </div>
-          ))}
-        </nav>
-      </aside>
+      <Sidebar />
 
       {/* Main content */}
       <main className="flex-1 overflow-y-auto">
@@ -214,13 +129,12 @@ export default function Dashboard() {
                     .
                   </p>
                 </div>
-                <div className="w-1/3">
+                <div className="w-1/3 self-end">
                   <Image
-                    src="/placeholder.png"
-                    width={75}
-                    height={75}
+                    src="/people.png"
+                    width={250}
+                    height={150}
                     alt="Team collaboration"
-                    className="w-full"
                   />
                 </div>
               </CardContent>

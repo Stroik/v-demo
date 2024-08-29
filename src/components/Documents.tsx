@@ -2,93 +2,38 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import {
-  Home,
-  BarChart2,
-  Star,
-  FileText,
-  Image,
-  FlaskConical,
-  Cuboid,
-  Database,
-  MessageCircle,
-  RefreshCw,
-  Settings,
-  Plus,
-  Minus,
-  Sun,
-  PanelLeftClose,
-  Filter,
-  ChevronDown,
-  Maximize2,
-  Puzzle,
-  RotateCcw,
-  List,
-  Sparkles,
-  GitCompareArrows,
-  LockOpen,
-  Lock,
-} from "lucide-react";
-import Link from "next/link";
+import { RefreshCw, Settings, ChevronDown } from "lucide-react";
 import Joyride, { Step } from "react-joyride";
+import Sidebar from "./common/Sidebar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faPlusCircle,
+  faMinusCircle,
+  faList,
+  faUndoAlt,
+  faPuzzlePiece,
+  faExpandArrowsAlt,
+  faFilter,
+  faChevronDown,
+  faInfoCircle,
+  faFile,
+  faClock,
+  faLink,
+  faComment,
+  faCheckDouble,
+  faSheetPlastic,
+  faShare,
+  faStar,
+  faLock,
+  faLockOpen,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Documents() {
   const [runTour, setRunTour] = useState(true);
   const [isSelected, setIsSelected] = useState(false);
   const [isLock, setIsLock] = useState(false);
-
-  const sidebarItems = [
-    {
-      icon: Home,
-      label: "Home",
-      className: "flex flex-col items-center home-button",
-      link: "/",
-    },
-    {
-      icon: BarChart2,
-      label: "Dashboards",
-      className: "flex flex-col items-center dashboards-button",
-      link: "#",
-    },
-    {
-      icon: Star,
-      label: "Views",
-      className: "flex flex-col items-center views-button",
-      link: "#",
-    },
-    {
-      icon: FileText,
-      label: "Documents",
-      className: "flex flex-col items-center documents-button",
-      link: "/documents",
-    },
-    {
-      icon: Image,
-      label: "Reviews",
-      className: "flex flex-col items-center image-button",
-      link: "#",
-    },
-    {
-      icon: FlaskConical,
-      label: "Tests & Runs",
-      className: "flex flex-col items-center tests-button",
-      link: "#",
-    },
-    {
-      icon: Cuboid,
-      label: "Data Models",
-      className: "flex flex-col items-center data-button",
-      link: "#",
-    },
-    {
-      icon: Database,
-      label: "Traceability Matrix",
-      className: "flex flex-col items-center matrix-button",
-      link: "#",
-    },
-  ];
 
   const steps: Step[] = [
     {
@@ -129,6 +74,15 @@ export default function Documents() {
     },
   ];
 
+  const sidebarItems = [
+    { icon: faInfoCircle, label: "Details" },
+    { icon: faFile, label: "Associated Files" },
+    { icon: faClock, label: "History" },
+    { icon: faLink, label: "Linked Items" },
+    { icon: faComment, label: "Comments" },
+    { icon: faCheckDouble, label: "Approvals" },
+  ];
+
   return (
     <div className="flex h-screen bg-gray-100">
       <Joyride
@@ -143,29 +97,7 @@ export default function Documents() {
         }}
       />
 
-      <aside className="sidebar w-24 bg-black text-white flex flex-col items-center py-2 overflow-y-auto max-h-full px-2">
-        <div className="aspect-square w-full bg-red-500 rounded-sm flex items-center justify-center text-white font-bold text-xl">
-          <Link href="/">V</Link>
-        </div>
-        <nav className="space-y-2">
-          {sidebarItems.map((item, index) => (
-            <div key={index}>
-              <Link href={item.link} className={item.className}>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="text-gray-400 hover:text-red-500 hover:bg-gray-800 w-12 h-12 rounded-lg"
-                >
-                  <item.icon className="h-6 w-6" />
-                </Button>
-                <span className="text-xs mt-1 text-center text-gray-400">
-                  {item.label}
-                </span>
-              </Link>
-            </div>
-          ))}
-        </nav>
-      </aside>
+      <Sidebar />
 
       {/* Main content */}
       <main className="flex-1 flex flex-col overflow-hidden">
@@ -200,50 +132,66 @@ export default function Documents() {
         </header>
 
         {/* Toolbar */}
-        <div className="toolbar bg-gray-100 p-2 flex items-center space-x-2">
+        <div className="toolbar bg-gray-100 p-2 flex items-center w-full border-b border-zinc-200 text-gray-600">
           <Button variant="ghost" size="icon">
-            <List className="h-4 w-4 list-icon" />
-          </Button>
-          <Button variant="ghost" size="icon">
-            <Plus className="h-4 w-4 plus-icon" />
-          </Button>
-          <Button variant="ghost" size="icon">
-            <Minus className="h-4 w-4 minus-icon" />
-          </Button>
-          <Button variant="ghost" size="icon">
-            <Sparkles className="h-4 w-4" />
-          </Button>
-          {isSelected && (
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsLock(!isLock)}
-            >
-              {isLock ? (
-                <Lock className="h-4 w-4" />
-              ) : (
-                <LockOpen className="h-4 w-4" />
-              )}
-            </Button>
-          )}
-          <Button variant="ghost" size="icon">
-            <GitCompareArrows className="h-4 w-4" />
-          </Button>
-          <Button variant="ghost" size="icon">
-            <Puzzle className="h-4 w-4" />
+            <FontAwesomeIcon icon={faList} className="h-5 w-5" />
           </Button>
           <div className="border-l border-gray-300 h-6 mx-2"></div>
           <Button variant="ghost" size="icon">
-            <Maximize2 className="h-4 w-4" />
+            <FontAwesomeIcon icon={faPlusCircle} className="h-5 w-5" />
+          </Button>
+          <Button variant="ghost" size="icon">
+            <FontAwesomeIcon icon={faMinusCircle} className="h-5 w-5" />
+          </Button>
+          <div className="border-l border-gray-300 h-6 mx-2"></div>
+          <Button variant="ghost" size="icon">
+            <FontAwesomeIcon icon={faStar} className="h-5 w-5" />
+          </Button>
+
+          {isSelected && (
+            <>
+              <div className="border-l border-gray-300 h-6 mx-2"></div>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsLock(!isLock)}
+              >
+                {isLock ? (
+                  <FontAwesomeIcon icon={faLock} className="h-5 w-5" />
+                ) : (
+                  <FontAwesomeIcon icon={faLockOpen} className="h-5 w-5" />
+                )}
+              </Button>
+              <div className="border-l border-gray-300 h-6 mx-2"></div>
+            </>
+          )}
+          <Button variant="ghost" size="icon">
+            <FontAwesomeIcon icon={faUndoAlt} className="h-5 w-5" />
+          </Button>
+          <Button variant="ghost" size="icon">
+            <FontAwesomeIcon icon={faPuzzlePiece} className="h-5 w-5" />
+          </Button>
+          <div className="border-l border-gray-300 h-6 mx-2"></div>
+          <Button variant="ghost" size="icon">
+            <FontAwesomeIcon icon={faExpandArrowsAlt} className="h-5 w-5" />
           </Button>
           <div className="border-l border-gray-300 h-6 mx-2"></div>
           <Button variant="ghost" size="sm">
-            100% <ChevronDown className="ml-2 h-4 w-4" />
+            100%{" "}
+            <FontAwesomeIcon icon={faChevronDown} className="ml-2 h-5 w-5" />
           </Button>
           <div className="border-l border-gray-300 h-6 mx-2"></div>
-          <Button variant="ghost" size="icon">
-            <Filter className="h-4 w-4" />
-          </Button>
+          <div className="ml-auto">
+            <Button variant="ghost" size="icon">
+              <FontAwesomeIcon icon={faFilter} className="h-5 w-5" />
+            </Button>
+            <Button variant="ghost" size="icon">
+              <FontAwesomeIcon icon={faSheetPlastic} className="h-5 w-5" />
+            </Button>
+            <Button variant="ghost" size="icon">
+              <FontAwesomeIcon icon={faShare} className="h-5 w-5" />
+            </Button>
+          </div>
         </div>
 
         {/* Document content */}
@@ -308,47 +256,20 @@ export default function Documents() {
               </Card>
             </div>
           </div>
-          <div className="right-sidebar w-64 bg-white border-l border-gray-200 p-4 overflow-y-auto">
-            <div className="space-y-4">
-              <Button variant="outline" size="sm" className="w-full">
-                <MessageCircle className="mr-2 h-4 w-4" /> Add comment
-              </Button>
-              <div>
-                <h3 className="font-semibold mb-2">Details</h3>
-                <p className="text-sm text-gray-600">
-                  Additional information about the document can be displayed
-                  here.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">Associated Files</h3>
-                <p className="text-sm text-gray-600">
-                  Links to related documents or files can be listed here.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">History</h3>
-                <p className="text-sm text-gray-600">
-                  A log of recent changes and updates to the document.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">Linked Items</h3>
-                <p className="text-sm text-gray-600">
-                  Other items in the system that are related to this document.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">Comments</h3>
-                <p className="text-sm text-gray-600">
-                  Recent comments or discussions about the document.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">Approvals</h3>
-                <p className="text-sm text-gray-600">
-                  Status of any pending approvals for this document.
-                </p>
+          <div className="right-sidebar">
+            <div className="bg-zinc-700 w-20 p-4 text-white h-full flex flex-col items-center justify-between">
+              <div className="space-y-6">
+                {sidebarItems.map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center text-gray-400"
+                  >
+                    <FontAwesomeIcon icon={item.icon} className="text-xl" />
+                    <span className="text-xs text-center pt-2">
+                      {item.label}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
