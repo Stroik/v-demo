@@ -39,13 +39,13 @@ export default function Documents() {
     {
       target: ".sidebar",
       content:
-        "This is the main navigation sidebar. You can access different sections of the application from here.",
+        "You can access to all our different modules from here.",
       disableBeacon: true,
     },
     {
       target: ".header",
       content:
-        "This is the header area. You can switch between projects, search for content, and access quick actions.",
+        "You can switch between projects and search for content",
     },
     {
       target: ".toolbar",
@@ -60,17 +60,22 @@ export default function Documents() {
     {
       target: ".document-content",
       content:
-        "This is the main content area of your document. You can add and edit different sections here.",
+        "This is the main content area of your document. Here you will see your requirements separated into different clickeable items.",
     },
     {
       target: ".right-sidebar",
       content:
-        "This sidebar shows additional information and actions related to the current document.",
+        "When you click an item, here you will see all the information related to that item: details, version history, comments, etc.",
     },
     {
       target: ".plus-icon",
       content:
         "A new item will be created right below the currently selected item.",
+    },
+    {
+      target: ".addchild-icon",
+      content:
+        "A new item will be created right below the currently selected item and as its child in the hierarchy tree.",
     },
     {
       target: ".ai-icon",
@@ -85,7 +90,7 @@ export default function Documents() {
     {
       target: ".unlock-icon",
       content:
-        "After clicking an item, unlock it start editing it. You will block other users to edit it during this period",
+        "After clicking an item, unlock it to start editing it. During this period, other users will not be able to edit the same item.",
     },         
     {
       target: ".details-icon",
@@ -158,10 +163,10 @@ export default function Documents() {
           </Button>
           <div className="border-l border-gray-300 h-6 mx-2"></div>
           <Button variant="ghost" size="icon">
-            <FontAwesomeIcon icon={faPlusCircle} className="h-5 w-5" />
+            <FontAwesomeIcon icon={faPlusCircle} className="h-5 w-5 plus-icon" />
           </Button>
           <Button variant="ghost" size="icon">
-            <FontAwesomeIcon icon={faMinusCircle} className="h-5 w-5" />
+            <FontAwesomeIcon icon={faMinusCircle} className="h-5 w-5 addchild-icon" />
           </Button>
           <div className="border-l border-gray-300 h-6 mx-2"></div>
           <Button variant="ghost" size="icon">
