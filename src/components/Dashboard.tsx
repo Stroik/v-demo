@@ -258,12 +258,12 @@ export default function Dashboard() {
             {/* What's New */}
             <Card className="w-1/3">
               <CardHeader>
-                <CardTitle>What's New</CardTitle>
+                <CardTitle>What&apos;s New</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
                   <h4 className="font-semibold text-blue-500">
-                    What's New in Visure V8
+                    What&apos;s New in Visure V8
                   </h4>
                 </div>
                 <div>
@@ -271,9 +271,9 @@ export default function Dashboard() {
                     Unveiling Visure V8
                   </h4>
                   <p className="text-sm text-gray-600">
-                    Join us for an exclusive webinar, 'Unveiling V8,' where we
+                    Join us for an exclusive webinar, &apos;Unveiling V8,&apos; where we
                     showcase the latest features and advancements in Visure
-                    Solutions' version 8.
+                    Solutions&apos; version 8.
                   </p>
                   <p className="text-sm text-gray-500 mt-2">
                     Est. reading time
