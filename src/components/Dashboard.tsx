@@ -8,7 +8,7 @@ import {
   BarChart2,
   Star,
   FileText,
-  Image,
+  Image as ImageIcon,
   FlaskConical,
   Cuboid,
   Database,
@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import Joyride, { Step } from "react-joyride";
+import Image from "next/image";
 
 export default function Dashboard() {
   const [runTour, setRunTour] = useState(true);
@@ -45,7 +46,7 @@ export default function Dashboard() {
       className: "flex flex-col items-center documents-button",
     },
     {
-      icon: Image,
+      icon: ImageIcon,
       label: "Reviews",
       className: "flex flex-col items-center image-button",
     },
@@ -204,8 +205,10 @@ export default function Dashboard() {
                   </p>
                 </div>
                 <div className="w-1/3">
-                  <img
+                  <Image
                     src="/placeholder.png"
+                    width={150}
+                    height={150}
                     alt="Team collaboration"
                     className="w-full"
                   />
