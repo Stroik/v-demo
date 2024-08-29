@@ -122,6 +122,11 @@ export default function Documents() {
       content:
         "This sidebar shows additional information and actions related to the current document.",
     },
+    {
+      target: ".plus-icon",
+      content:
+        "A new item will be created right below the currently selected item.",
+    },
   ];
 
   return (
