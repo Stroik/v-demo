@@ -72,15 +72,35 @@ export default function Documents() {
       content:
         "A new item will be created right below the currently selected item.",
     },
+    {
+      target: ".ai-icon",
+      content:
+        "Use our AI assistant to generate high quality requirements automatically",
+    },    
+    {
+      target: ".lock-icon",
+      content:
+        "As soon as you finish, lock it back again. So other people can now edit it.",
+    },    
+    {
+      target: ".unlock-icon",
+      content:
+        "After clicking an item, unlock it start editing it. You will block other users to edit it during this period",
+    },         
+    {
+      target: ".details-icon",
+      content:
+        "When selecting an item, you can see all details here.",
+    }, 
   ];
 
   const sidebarItems = [
-    { icon: faInfoCircle, label: "Details" },
-    { icon: faFile, label: "Associated Files" },
-    { icon: faClock, label: "History" },
-    { icon: faLink, label: "Linked Items" },
-    { icon: faComment, label: "Comments" },
-    { icon: faCheckDouble, label: "Approvals" },
+    { icon: faInfoCircle, label: "Details", className: "details-icon" },
+    { icon: faFile, label: "Associated Files", className: "afiles-icon" },
+    { icon: faClock, label: "History", className: "history-icon" },
+    { icon: faLink, label: "Linked Items", className: "linked-icon" },
+    { icon: faComment, label: "Comments", className: "comments-icon" },
+    { icon: faCheckDouble, label: "Approvals", className: "approvals-icon" },
   ];
 
   return (
@@ -105,7 +125,7 @@ export default function Documents() {
         <header className="header bg-white shadow-sm p-2 flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <Button variant="destructive" size="sm">
-              Tutorial - Mauro
+              Tutorial
             </Button>
             <Button variant="outline" size="sm">
               Baseline: Current <ChevronDown className="ml-2 h-4 w-4" />
@@ -145,7 +165,7 @@ export default function Documents() {
           </Button>
           <div className="border-l border-gray-300 h-6 mx-2"></div>
           <Button variant="ghost" size="icon">
-            <LucideSparkles className="h-5 w-5" />
+            <LucideSparkles className="h-5 w-5 ai-icon" />
           </Button>
 
           {isSelected && (
@@ -157,9 +177,9 @@ export default function Documents() {
                 onClick={() => setIsLock(!isLock)}
               >
                 {isLock ? (
-                  <FontAwesomeIcon icon={faLock} className="h-5 w-5" />
+                  <FontAwesomeIcon icon={faLock} className="h-5 w-5 lock-icon" />
                 ) : (
-                  <FontAwesomeIcon icon={faLockOpen} className="h-5 w-5" />
+                  <FontAwesomeIcon icon={faLockOpen} className="h-5 w-5 unlock-icon" />
                 )}
               </Button>
               <div className="border-l border-gray-300 h-6 mx-2"></div>
@@ -264,7 +284,7 @@ export default function Documents() {
                     key={index}
                     className="flex flex-col items-center text-gray-400"
                   >
-                    <FontAwesomeIcon icon={item.icon} className="text-xl" />
+                    <FontAwesomeIcon icon={item.icon} className={`text-xl ${item.className}`} />
                     <span className="text-xs text-center pt-2">
                       {item.label}
                     </span>
