@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dashboard Clone",
+  title: "Visure - Dashboard",
   description:
     "A clone of the Visure Authoring dashboard with an onboarding tour",
 };

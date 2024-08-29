@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { RefreshCw, Settings, ChevronDown } from "lucide-react";
+import { RefreshCw, Settings, ChevronDown, LucideSparkles } from "lucide-react";
 import Joyride, { Step } from "react-joyride";
 import Sidebar from "./common/Sidebar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -145,7 +145,7 @@ export default function Documents() {
           </Button>
           <div className="border-l border-gray-300 h-6 mx-2"></div>
           <Button variant="ghost" size="icon">
-            <FontAwesomeIcon icon={faStar} className="h-5 w-5" />
+            <LucideSparkles className="h-5 w-5" />
           </Button>
 
           {isSelected && (
